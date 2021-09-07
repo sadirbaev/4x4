@@ -1,0 +1,33 @@
+.box {
+    height: 60px;
+    width: 60px;
+    vertical-align: top;
+    font-weight: bold;
+    font-size: 32px;
+    margin: 0;
+}
+
+.inner-box-container {
+    margin: 14px 0;
+}
+
+.container {
+    padding: 10px;
+    max-width: 480px;
+    min-width: 250px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: azure;
+    size: 48px;
+    font-weight: bold;
+}
+
+body {
+    font-family: "Press Start 2P", cursive;
+}
+
+.costum-icon {
+    margin-bottom: 16px !important;
+}
