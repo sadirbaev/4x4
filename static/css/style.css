@@ -3,7 +3,7 @@
     width: 60px;
     vertical-align: top;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .container {
-    padding: 10px;
+    padding: 20px;
     max-width: 480px;
     min-width: 250px;
     margin: 0 auto;
@@ -30,4 +30,22 @@ body {
 
 .costum-icon {
     margin-bottom: 16px !important;
+    margin-right: 48px !important;
 }
+
+.costum-heart {
+    transform: scale(1.5) !important;
+    margin-right: 8px !important;
+    margin-bottom: 4px !important;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+ }

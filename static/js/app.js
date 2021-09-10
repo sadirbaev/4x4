@@ -4,8 +4,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     width = Math.min(width, 480);
     let elements = document.getElementsByClassName('box');
     for(var i=0; i<elements.length; i++) { 
-        elements[i].style.height = (width-20)/4 - 14 + 'px';
-        elements[i].style.width = (width-20)/4 - 14 + 'px';
+        elements[i].style.height = (width-40)/4 - 14 + 'px';
+        elements[i].style.width = (width-40)/4 - 14 + 'px';
     }
 });
 
@@ -14,8 +14,8 @@ window.addEventListener('resize', function(event) {
     width = Math.min(width, 480);
     let elements = document.getElementsByClassName('box');
     for(var i=0; i<elements.length; i++) { 
-        elements[i].style.height = (width-20)/4 - 14 + 'px';
-        elements[i].style.width = (width-20)/4 - 14 + 'px';
+        elements[i].style.height = (width-40)/4 - 14 + 'px';
+        elements[i].style.width = (width-40)/4 - 14 + 'px';
     }
 }, true);
 
@@ -23,6 +23,8 @@ let ids = ["btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8", "btn9
 let cnt = 0;
 
 function startGame(){
+    document.getElementById('result').innerText = 10
+    document.getElementById('dialog-default').showModal();
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     numbers = shuffle(numbers);
     cnt = 0;
