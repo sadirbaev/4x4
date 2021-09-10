@@ -23,8 +23,6 @@ let ids = ["btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8", "btn9
 let cnt = 0;
 
 function startGame(){
-    document.getElementById('result').innerText = 10
-    document.getElementById('dialog-default').showModal();
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     numbers = shuffle(numbers);
     cnt = 0;
@@ -55,13 +53,14 @@ function startGame(){
             }
             
             document.getElementById("cnt").innerText = cnt;
-            let k=1;
+            let k=0;
             for (let i=0; i<16; i++){
                 if (numbers[i] != k) break;
                 k++;
             }
-            if (k == 17) {
-                alert("Congrats!");
+            if (k == 16) {
+                document.getElementById('result').innerText = cnt;
+                document.getElementById('dialog-default').showModal();
             }
         };
     }

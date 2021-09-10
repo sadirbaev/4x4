@@ -17,6 +17,7 @@
                 <i class="nes-icon trophy costum-icon is-medium"></i><span style="vertical-align: middle; font-size: 24px;" id = "cnt">0</span>
             </div>
         </div>
+        <hr style="margin: 25px 0 30px;">
         <div>
             <div class="row inner-box-container">
                 <button id="btn1" class="nes-btn box"></button>
@@ -46,17 +47,18 @@
         <div class="footer">
             <span style="font-size: 12px;">
                 Made with <i class="nes-icon is-medium costum-heart heart"></i> by 
-                <a href="https://github.com/sadirbaev" target="_blank">Sadirbaev</a>
+                <a href="https://github.com/sadirbaev/4x4" target="_blank">Sadirbaev</a>
                 using <a href="https://nostalgic-css.github.io/NES.css/" target="_blank">NES.css</a>
             </span>
         </div>
         <dialog class="nes-dialog" id="dialog-default">
-            <form method="dialog">
-              <p class="title">Congratulation!</p>
-              <p>Your result is <spen id="result">0</spen></p>
-              <menu class="dialog-menu">
-                <button class="nes-btn">Close</button>
+            <form method="dialog" style="text-align: center;">
+              <p class="title nes-text is-success">Congratulation!</p>
+              <p>Your result is</p>
+              <p class="nes-text is-primary" id="result" style="font-size: 24px;">0</p>
+              <menu class="dialog-menu" style="padding-inline-start: 0; margin-top: 30px;">
                 <button onclick="startGame()" class="nes-btn is-primary">New game</button>
+                <button class="nes-btn">Close</button>
               </menu>
             </form>
           </dialog>
