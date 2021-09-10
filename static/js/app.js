@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
     let width  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     width = Math.min(width, 480);
     let elements = document.getElementsByClassName('box');
@@ -25,6 +24,9 @@ let cnt = 0;
 function startGame(){
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     numbers = shuffle(numbers);
+    if (!isSolvable(numbers)){
+        [numbers[0], numbers[1]] = [numbers[1], numbers[0]];
+    };
     cnt = 0;
     document.getElementById("cnt").innerText = cnt;
     for (let i=0; i<16; i++){
@@ -53,12 +55,12 @@ function startGame(){
             }
             
             document.getElementById("cnt").innerText = cnt;
-            let k=0;
+            let k=1;
             for (let i=0; i<16; i++){
                 if (numbers[i] != k) break;
                 k++;
             }
-            if (k == 16) {
+            if (k == 17) {
                 document.getElementById('result').innerText = cnt;
                 document.getElementById('dialog-default').showModal();
             }
@@ -67,6 +69,23 @@ function startGame(){
 
 
 
+}
+
+function isSolvable(numbers){
+    let numberInverions = 0;
+    for (let i = 0; i < numbers.length-1; i++)
+    {    
+        for (let j = i+1; j < numbers.length; j++){
+            if (numbers[i] < numbers[j]) numberInverions++;                
+        }
+    }
+    let index = numbers.indexOf(16);
+    let row = Math.floor(index/4);
+    if (row % 2 == 0){
+        return numberInverions % 2 == 0
+    } else {
+        return numberInverions % 2 != 0
+    }
 }
 
 function swap(numbers, i, j){
