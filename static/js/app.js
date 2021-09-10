@@ -1,6 +1,5 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
-    // document.getElementsByClassName("box").style.height = '120px';
     let width  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     width = Math.min(width, 480);
     let elements = document.getElementsByClassName('box');
