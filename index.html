@@ -10,40 +10,43 @@
     <title>4x4</title>
 </head>
 <body>
+    <div class="header"><a href="https://en.wikipedia.org/wiki/Sliding_puzzle" target="_blank">Sliding puzzle</a></div>
     <div class="container">
-        <div class="header"><a href="https://en.wikipedia.org/wiki/Sliding_puzzle" target="_blank">Sliding puzzle</a></div>
-        <div style="display: flex; justify-content: space-between;">
-            <button class="nes-btn is-primary" onclick="startGame()">New game</button>
-            <div style="padding-right: 10px;">
-                <i class="nes-icon trophy costum-icon is-medium"></i><span style="font-size: 24px;" id = "cnt">0</span>
+        <div id="main">
+            <div style="display: flex; justify-content: space-between;">
+                <button class="nes-btn is-primary" onclick="startGame()">New game</button>
+                <div style="padding-right: 10px;">
+                    <i class="nes-icon trophy costum-icon is-medium"></i><span style="font-size: 24px;" id = "cnt">0</span>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <div class="row inner-box-container">
+                    <button id="btn1" class="nes-btn box"></button>
+                    <button id="btn2" class="nes-btn box"></button>
+                    <button id="btn3" class="nes-btn box"></button>
+                    <button id="btn4" class="nes-btn box"></button>
+                </div>
+                <div class="row inner-box-container">
+                    <button id="btn5" class="nes-btn box">G</button>
+                    <button id="btn6" class="nes-btn box">O</button>
+                    <button id="btn7" class="nes-btn box">O</button>
+                    <button id="btn8" class="nes-btn box">D</button>
+                </div>
+                <div class="row inner-box-container">
+                    <button id="btn9" class="nes-btn box">L</button>
+                    <button id="btn10" class="nes-btn box">U</button>
+                    <button id="btn11" class="nes-btn box">C</button>
+                    <button id="btn12" class="nes-btn box">K</button>
+                </div>
+                <div class="row inner-box-container">
+                    <button id="btn13" class="nes-btn box"></button>
+                    <button id="btn14" class="nes-btn box"></button>
+                    <button id="btn15" class="nes-btn box"></button>
+                    <button id="btn16" class="nes-btn box"></button>
+                </div>
             </div>
         </div>
-        <div style="margin-top: 20px;">
-            <div class="row inner-box-container">
-                <button id="btn1" class="nes-btn box"></button>
-                <button id="btn2" class="nes-btn box"></button>
-                <button id="btn3" class="nes-btn box"></button>
-                <button id="btn4" class="nes-btn box"></button>
-            </div>
-            <div class="row inner-box-container">
-                <button id="btn5" class="nes-btn box">G</button>
-                <button id="btn6" class="nes-btn box">O</button>
-                <button id="btn7" class="nes-btn box">O</button>
-                <button id="btn8" class="nes-btn box">D</button>
-            </div>
-            <div class="row inner-box-container">
-                <button id="btn9" class="nes-btn box">L</button>
-                <button id="btn10" class="nes-btn box">U</button>
-                <button id="btn11" class="nes-btn box">C</button>
-                <button id="btn12" class="nes-btn box">K</button>
-            </div>
-            <div class="row inner-box-container">
-                <button id="btn13" class="nes-btn box"></button>
-                <button id="btn14" class="nes-btn box"></button>
-                <button id="btn15" class="nes-btn box"></button>
-                <button id="btn16" class="nes-btn box"></button>
-            </div>
-        </div>
+        
         <div class="footer">
             <span style="font-size: 12px;">
                 Made with <i class="nes-icon is-medium costum-heart heart"></i> by 
@@ -51,17 +54,7 @@
                 using <a href="https://nostalgic-css.github.io/NES.css/" target="_blank">NES.css</a>
             </span>
         </div>
-        <dialog class="nes-dialog" id="dialog-default">
-            <form method="dialog" style="text-align: center;">
-              <p class="title nes-text is-success">Congratulation!</p>
-              <p>Your result is</p>
-              <p class="nes-text is-primary" id="result" style="font-size: 24px;">0</p>
-              <menu class="dialog-menu" style="padding-inline-start: 0; margin-top: 30px;">
-                <button onclick="startGame()" class="nes-btn is-primary">New game</button>
-                <button class="nes-btn">Close</button>
-              </menu>
-            </form>
-          </dialog>
+        
     </div>
     
 </body>

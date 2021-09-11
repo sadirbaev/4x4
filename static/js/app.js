@@ -22,13 +22,18 @@ let ids = ["btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8", "btn9
 let cnt = 0;
 
 function startGame(){
+    cnt = 0;
+    document.getElementById("cnt").innerText = cnt;
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     numbers = shuffle(numbers);
     if (!isSolvable(numbers)){
-        [numbers[0], numbers[1]] = [numbers[1], numbers[0]];
+        if (numbers[0] != 16 && numbers[1] != 16){
+            [numbers[0], numbers[1]] = [numbers[1], numbers[0]];
+        } else {
+            [numbers[numbers.length-1], numbers[numbers.length-2]] = [numbers[numbers.length-2], numbers[numbers.length-1]];
+        }
     };
-    cnt = 0;
-    document.getElementById("cnt").innerText = cnt;
+    
     for (let i=0; i<16; i++){
         if (numbers[i] == 16){
             document.getElementById(ids[i]).innerText = "";
@@ -61,8 +66,8 @@ function startGame(){
                 k++;
             }
             if (k == 17) {
-                document.getElementById('result').innerText = cnt;
-                document.getElementById('dialog-default').showModal();
+                
+                showCongrats(); 
             }
         };
     }
@@ -70,21 +75,52 @@ function startGame(){
 
 
 }
+let main;
+let congrats = `<div open>
+<form style="text-align: center;">
+  <p class="title nes-text is-success">Congratulation!</p>
+  <p>Your result is</p>
+  <p class="nes-text is-primary" id="result" style="font-size: 24px;">0</p>
+  <div style="padding-inline-start: 0; margin-top: 30px;">
+    <button onclick="showMainAndStratGame()" class="nes-btn is-primary">New game</button>
+    <button onclick="showMain()" class="nes-btn">Close</button>
+  </div>
+</form>
+</div>`
+
+function showMainAndStratGame(){
+    document.getElementById('main').innerHTML = main;
+    startGame();
+}
+
+function showMain(){
+    document.getElementById('main').innerHTML = main;
+}
+
+function showCongrats(){
+    main = document.getElementById('main').innerHTML;
+    document.getElementById('main').innerHTML = congrats;
+    document.getElementById('result').innerText = cnt;
+}
+
 
 function isSolvable(numbers){
     let numberInverions = 0;
     for (let i = 0; i < numbers.length-1; i++)
     {    
+        if (numbers[i] == 16) continue;
         for (let j = i+1; j < numbers.length; j++){
-            if (numbers[i] < numbers[j]) numberInverions++;                
+            if (numbers[i] > numbers[j] && numbers[j] != 16) {
+                numberInverions++;   
+            }            
         }
-    }
+    }    
     let index = numbers.indexOf(16);
-    let row = Math.floor(index/4);
-    if (row % 2 == 0){
-        return numberInverions % 2 == 0
+    let rowFromBelow = Math.sqrt(numbers.length)-Math.floor(index/4);
+    if (rowFromBelow % 2 != 0){
+        return numberInverions % 2 == 0;
     } else {
-        return numberInverions % 2 != 0
+        return numberInverions % 2 != 0;
     }
 }
 
